@@ -26,6 +26,7 @@ body {
 	height: 1px;
 	background-image:url(../images/line.jpg);
 	background-repeat:no-repeat;
+	margin-bottom: 60px;
 }
 
 .pushDown {
