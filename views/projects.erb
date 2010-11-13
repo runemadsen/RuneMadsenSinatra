@@ -1,0 +1,82 @@
+<div class="grid_12"> 
+			
+	<h1>Work.</h1> 
+	
+	<% project = @projects.shift %>
+
+    <div class="grid_6 workthumb alpha"> 
+		<h4><%= project.title %></h4> 
+ 		<a href="/work/<%= project.id %>"> 
+    		<img src="/images/<%= project.img_big %>" /> 
+    	</a> 
+	</div> 
+    
+    <!-- Show next 4 items --> 
+    <div class="grid_6 workthumb omega"> 
+		
+		<% project = @projects.shift %>
+		<div class="grid_3 workthumb alpha"> 
+            <h4><%= project.title %></h4> 
+	 		<a href="/work/<%= project.id %>"> 
+	    		<img src="/images/<%= project.img_small %>" /> 
+	    	</a>
+		</div> 
+            
+		<% project = @projects.shift %>
+        <div class="grid_3 workthumb omega"> 
+            <h4><%= project.title %></h4> 
+	 		<a href="/work/<%= project.id %>"> 
+	    		<img src="/images/<%= project.img_small %>" /> 
+	    	</a>
+		</div> 
+            
+		<% project = @projects.shift %>
+        <div class="grid_3 workthumb alpha"> 
+            <h4><%= project.title %></h4> 
+	 		<a href="/work/<%= project.id %>"> 
+	    		<img src="/images/<%= project.img_small %>" /> 
+	    	</a>
+ 		</div> 
+		
+		<% project = @projects.shift %>
+		<div class="grid_3 workthumb omega"> 
+            <h4><%= project.title %></h4> 
+	 		<a href="/work/<%= project.id %>"> 
+	    		<img src="/images/<%= project.img_small %>" /> 
+	    	</a>
+		</div>
+	</div> 
+ 
+	<% @projects.each_with_index do |project, index| %>
+	
+		<%  
+			classname = "";
+			
+			if index % 4 == 0
+				classname = "alpha"
+			elsif index % 4 == 3
+				classname = "omega"
+			end
+		%>
+		
+		<div class="grid_3 workthumb <%= classname %>"> 
+			<h4><%= project.title %></h4> 
+	 		<a href="/work/<%= project.id %>"> 
+	    		<img src="/images/<%= project.img_small %>" /> 
+	    	</a>
+		</div>
+		
+		<%	if classname == "omega" %>
+			<div class="clear"></div> 
+		<% end %>
+	     
+	<% end %>
+	    
+	
+		
+	    
+	
+	
+</div>
+	    
+		
