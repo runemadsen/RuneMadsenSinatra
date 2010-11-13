@@ -6,6 +6,13 @@ require 'cgi'
 
 set :views, File.dirname(__FILE__) + '/views'
 
+get '/' do
+  
+  @projects = Project.all :limit => 4, :order => [ :ordering.asc ]
+  erb :welcome
+  
+end
+
 get '/blog' do
   
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ]

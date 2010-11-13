@@ -1,11 +1,12 @@
-@charset "UTF-8";
 body {
-	background-color:#FFF;	
+	background-image: url(../images/grid.jpg);
+	background-repeat:repeat;
+	background-color:#FFF;
 	font-size: 13px;
 	font-family:Verdana, Geneva, sans-serif;
 	color: #3a3a3a;
 	letter-spacing: -0.7px;
-	line-height:24px;
+	line-height:20px;
 }
 
 /* Main menu */
@@ -26,38 +27,15 @@ body {
 	height: 1px;
 	background-image:url(../images/line.jpg);
 	background-repeat:no-repeat;
-	margin-bottom: 60px;
-}
-
-.pushDown {
-	margin-top: 40px;	
-}
-
-.pushdown2 {
-	margin-top: 18px;
-}
-
-.pushDown3 {
-	margin-top: 13px;
-}
-
-.moduletable_front {
-	margin-top: 18px;	
-}
-
-.moduletable_front ul {
-	margin-top: 13px;
-}
-
-.moduletable_front ul li {
-	margin-bottom: 8px;
+	margin-bottom: 69px;
 }
 
 /* Blog
 ______________________________________________ */
 
 .blogHeader {
-	width: 100%;	
+	width: 100%;
+	margin-bottom: 8px;	
 }
 
 .blogHeading {
@@ -86,7 +64,7 @@ ______________________________________________ */
 
 .blogPost {
 	margin-top: 20px;
-	margin-bottom: 30px;	
+	margin-bottom: 70px;	
 }
 
 li.tweettext {
@@ -109,15 +87,6 @@ ul.tweets {
 	margin-bottom: 15px;	
 }
 
-/*
-li.tagtext {
-	background-color: #ff8b5c;
-}
-
-li.linktext {
-	background-color: #8ac99c;
-}*/
-
 /* Pagination
 ______________________________________________ */
 
@@ -136,16 +105,11 @@ ul.pagination li {
 	margin-right: 20px;
 }
 
-/* JComments
+/* Pagination
 ______________________________________________ */
 
-.jcomments-links {
-	width: 100%;
-	text-align:right;
-}
-
-#comments-footer {
-	display:none;	
+ol {
+	list-style-position: inside;
 }
 
 /* FONTS
@@ -170,7 +134,7 @@ ______________________________________________ */
 
 p {
 	text-align:justify;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 
 h1 {
@@ -180,7 +144,7 @@ h1 {
 	font-family: 'Museo500', sans-serif;
 	color: #414141;
 	font-size:36px;
-	margin-bottom: 3px;
+	margin-bottom: 35px;
 }
 
 h2 {
@@ -257,17 +221,6 @@ a.link7 {
 	color:#424242;
 }
 
-#mainRight2 h3 {
-	margin-bottom: 7px;	
-}
-
-.workthumb h4 {
-	margin-bottom: 3px;	
-}
-
-
-
-
 /* Work
 ______________________________________________ */
 
@@ -275,59 +228,12 @@ ______________________________________________ */
 	margin-bottom: 10px;	
 }
 
-.moduletable_bio {
-	margin-top: 18px;	
-}
-
-.moduletable_bio ul {
-	margin-top: 13px;
-}
-
-.moduletable_bio ul li {
-	margin-bottom: 6px;
-}
-
-/* Code
+/* Other
 ______________________________________________ */
-
-.mostDownloaded {
-	margin-top: 35px;
-}
-
-.codeCat {
-	margin-top: 10px;	
-}
-
-/* Contact
-______________________________________________ */
-
-.mailform .chronoform {
-	display:none;	
-}
-
-#ChronoContact_contactform .inputbox {
-	border: 1px solid #999;
-	padding: 5px;
-	width: 290px;
-}
-
-#ChronoContact_contactform .textareabox {
-	border: 1px solid #999;
-	padding: 5px;
-	width: 290px;
-	height: 200px;
-}
 
 .clearfloat { 
 	clear:both;
 	height:0;
 	font-size: 1px;
 	line-height: 0px;
-}
-
-/* Single blog post
-______________________________________________ */
-
-#articlePage {
-	margin-top: 45px;	
 }

@@ -5,7 +5,6 @@
 	<% project = @projects.shift %>
 
     <div class="grid_6 workthumb alpha"> 
-		<h4><%= project.title %></h4> 
  		<a href="/work/<%= project.id %>"> 
     		<img src="/images/<%= project.img_big %>" /> 
     	</a> 
@@ -16,36 +15,26 @@
 		
 		<% project = @projects.shift %>
 		<div class="grid_3 workthumb alpha"> 
-            <h4><%= project.title %></h4> 
-	 		<a href="/work/<%= project.id %>"> 
-	    		<img src="/images/<%= project.img_small %>" /> 
-	    	</a>
+            <%= project.html %>
 		</div> 
             
 		<% project = @projects.shift %>
         <div class="grid_3 workthumb omega"> 
-            <h4><%= project.title %></h4> 
-	 		<a href="/work/<%= project.id %>"> 
-	    		<img src="/images/<%= project.img_small %>" /> 
-	    	</a>
+            <%= project.html %>
 		</div> 
             
 		<% project = @projects.shift %>
         <div class="grid_3 workthumb alpha"> 
-            <h4><%= project.title %></h4> 
-	 		<a href="/work/<%= project.id %>"> 
-	    		<img src="/images/<%= project.img_small %>" /> 
-	    	</a>
+            <%= project.html %>
  		</div> 
 		
 		<% project = @projects.shift %>
 		<div class="grid_3 workthumb omega"> 
-            <h4><%= project.title %></h4> 
-	 		<a href="/work/<%= project.id %>"> 
-	    		<img src="/images/<%= project.img_small %>" /> 
-	    	</a>
+            <%= project.html %>
 		</div>
+		<div class="clear"></div> 
 	</div> 
+	<div class="clear"></div> 
  
 	<% @projects.each_with_index do |project, index| %>
 	
@@ -60,10 +49,7 @@
 		%>
 		
 		<div class="grid_3 workthumb <%= classname %>"> 
-			<h4><%= project.title %></h4> 
-	 		<a href="/work/<%= project.id %>"> 
-	    		<img src="/images/<%= project.img_small %>" /> 
-	    	</a>
+			<%= project.html %>
 		</div>
 		
 		<%	if classname == "omega" %>

@@ -57,6 +57,14 @@ class Project
 
   property :ordering,     Integer, :default => 99
   
+  def html
+    <<-OUTPUT
+     		<a href="/work/#{id}"> 
+        		<img src="/images/#{img_small}" /> 
+        	</a>
+      OUTPUT
+  end
+  
 end
 
 #DataMapper.auto_upgrade!
