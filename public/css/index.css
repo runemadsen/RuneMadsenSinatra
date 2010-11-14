@@ -1,6 +1,6 @@
 body {
 	background-image: url(../images/grid.jpg);
-					background-repeat:repeat;
+	background-repeat:repeat;
 	background-color:#FFF;
 	font-size: 13px;
 	font-family:Verdana, Geneva, sans-serif;
@@ -237,7 +237,11 @@ ______________________________________________ */
 ______________________________________________ */
 
 .workthumb {
-	margin-bottom: 10px;	
+	margin-bottom: 12px;	
+}
+
+h1.workPushDown {
+	margin-bottom: 15px;
 }
 
 /* Other
