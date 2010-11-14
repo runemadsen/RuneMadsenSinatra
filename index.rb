@@ -4,6 +4,9 @@ require 'models/models'
 require 'dm-core'
 require 'cgi'
 
+mime_type :ttf, 'font/ttf'
+mime_type :woff, 'font/woff'
+
 set :views, File.dirname(__FILE__) + '/views'
 
 get '/' do

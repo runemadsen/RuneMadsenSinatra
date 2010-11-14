@@ -1,12 +1,121 @@
 body {
-	background-image: url(../images/grid.jpg);
-	background-repeat:repeat;
+	/*background-image: url(../images/grid.jpg);
+				background-repeat:repeat;*/
 	background-color:#FFF;
 	font-size: 13px;
 	font-family:Verdana, Geneva, sans-serif;
 	color: #3a3a3a;
 	letter-spacing: -0.7px;
-	line-height:20px;
+	line-height:24px;
+}
+
+/* FONTS
+______________________________________________ */
+
+@font-face {
+	font-family: 'Museo700';
+	src: url('../fonts/museo700-regular-webfont.eot');
+	src: local('☺'), url('../fonts/museo700-regular-webfont.woff') format('woff'), url('../fonts/museo700-regular-webfont.ttf') format('truetype'), url('../fonts/museo700-regular-webfont.svg#webfontrBfSyq0j') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Museo500';
+	src: url('../fonts/museo500-regular-webfont.eot');
+	src: local('☺'), url('../fonts/museo500-regular-webfont.woff') format('woff'), url('../fonts/museo500-regular-webfont.ttf') format('truetype'), url('../fonts/museo500-regular-webfont.svg#webfontAA3BbYs1') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+p {
+	text-align:justify;
+	margin-bottom: 12px;
+}
+
+h1 {
+	font-weight: normal; 
+	font-style: normal; 
+	line-height:normal; 
+	font-family: 'Museo500', sans-serif;
+	color: #414141;
+	font-size:36px;
+	margin-bottom: 10px;
+}
+
+h2 {
+	color: #414141;
+	font-size:20px;
+	font-weight: normal; 
+	font-style: normal; 
+	line-height:normal; 
+	font-family: 'Museo500', sans-serif;
+}
+
+h3 {
+	color: #414141;
+	font-size:18px;
+	font-weight: normal; 
+	font-style: normal; 
+	line-height:normal; 
+	font-family: 'Museo500', sans-serif;
+}
+
+h4 {
+	color: #414141;
+	font-size:14px;
+	font-weight: normal; 
+	font-style: normal; 
+	line-height:normal; 
+	font-family: 'Museo700', sans-serif;
+}
+
+a {
+	color: #919191;
+	text-decoration:underline;
+}
+
+.blogHeading a {
+	text-decoration:none;
+	color: #414141;
+}
+
+a.link1, a.link2, a.link3, a.link4, a.link5, a.link6, a.link7 {
+	padding: 10px 20px;
+	color:#FFF;
+	text-decoration:none;
+	margin-right: 10px;
+	text-align:left;
+}
+
+a.link1 {
+	background-color: #ff6133;
+}
+
+a.link2 {
+	background-color: #6a9dd8;
+}
+
+a.link4 {
+	background-color: #27543f;
+}
+
+a.link3 {
+	background-color: #543b36;
+}
+
+a.link4 {
+	background-color: #d23a3a;
+}
+
+a.link6 {
+	background-color: #d23a3a;
+}
+
+a.link7 {
+	background-color: #ffd664;
+	color:#424242;
 }
 
 /* Main menu */
@@ -27,7 +136,7 @@ body {
 	height: 1px;
 	background-image:url(../images/line.jpg);
 	background-repeat:no-repeat;
-	margin-bottom: 69px;
+	margin-bottom: 41px;
 }
 
 /* Blog
@@ -105,120 +214,23 @@ ul.pagination li {
 	margin-right: 20px;
 }
 
-/* Pagination
+/* Lists
 ______________________________________________ */
 
 ol {
 	list-style-position: inside;
 }
 
-/* FONTS
+/* Align right bars with main left
 ______________________________________________ */
 
-@font-face {
-	font-family: 'Museo700';
-	src: url('../fonts/museo700-regular-webfont.eot');
-	src: local('☺'), url('../fonts/museo700-regular-webfont.woff') format('woff'), url('../fonts/museo700-regular-webfont.ttf') format('truetype'), url('../fonts/museo700-regular-webfont.svg#webfontrBfSyq0j') format('svg');
-	font-weight: normal;
-	font-style: normal;
+.alignWithContent h3 {
+	margin-top: 16px;
+	margin-bottom: 19px;
 }
 
-@font-face {
-	font-family: 'Museo500';
-	src: url('../fonts/museo500-regular-webfont.eot');
-	src: local('☺'), url('../fonts/museo500-regular-webfont.woff') format('woff'), url('../fonts/museo500-regular-webfont.ttf') format('truetype'), url('../fonts/museo500-regular-webfont.svg#webfontAA3BbYs1') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-
-p {
-	text-align:justify;
-	margin-bottom: 10px;
-}
-
-h1 {
-	font-weight: normal; 
-	font-style: normal; 
-	line-height:normal; 
-	font-family: 'Museo500', sans-serif;
-	color: #414141;
-	font-size:36px;
-	margin-bottom: 35px;
-}
-
-h2 {
-	color: #414141;
-	font-size:20px;
-	font-weight: normal; 
-	font-style: normal; 
-	line-height:normal; 
-	font-family: 'Museo500', sans-serif;
-}
-
-h3 {
-	color: #414141;
-	font-size:18px;
-	font-weight: normal; 
-	font-style: normal; 
-	line-height:normal; 
-	font-family: 'Museo500', sans-serif;
-}
-
-h4 {
-	color: #414141;
-	font-size:14px;
-	font-weight: normal; 
-	font-style: normal; 
-	line-height:normal; 
-	font-family: 'Museo700', sans-serif;
-}
-
-a {
-	color: #919191;
-	text-decoration:underline;
-}
-
-.blogHeading a {
-	text-decoration:none;
-	color: #414141;
-}
-
-a.link1, a.link2, a.link3, a.link4, a.link5, a.link6, a.link7 {
-	padding: 10px 20px;
-	color:#FFF;
-	text-decoration:none;
-	margin-right: 10px;
-	text-align:left;
-}
-
-a.link1 {
-	background-color: #ff6133;
-}
-
-a.link2 {
-	background-color: #6a9dd8;
-}
-
-a.link4 {
-	background-color: #27543f;
-}
-
-a.link3 {
-	background-color: #543b36;
-}
-
-a.link4 {
-	background-color: #d23a3a;
-}
-
-a.link6 {
-	background-color: #d23a3a;
-}
-
-a.link7 {
-	background-color: #ffd664;
-	color:#424242;
+.alignWithContent img {
+	margin-bottom: 12	px;
 }
 
 /* Work
