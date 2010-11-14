@@ -54,6 +54,7 @@ class Project
   property :img_big,      String 
   property :img_small,    String 
   property :leftbar,      Text
+  property :published,    Boolean, :default => true
 
   property :ordering,     Integer, :default => 99
   
@@ -67,5 +68,5 @@ class Project
   
 end
 
-#DataMapper.auto_upgrade!
+# DataMapper.auto_upgrade!
 # DataMapper.auto_migrate!

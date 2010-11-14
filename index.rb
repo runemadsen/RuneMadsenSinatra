@@ -34,7 +34,7 @@ end
 
 get '/work' do
   
-  @projects = Project.all :order => [ :ordering.asc ]
+  @projects = Project.all :published=> 1, :order => [ :ordering.asc ]
   erb :projects
   
 end
