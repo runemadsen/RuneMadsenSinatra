@@ -1,6 +1,6 @@
 body {
-	/*background-image: url(../images/grid.jpg);
-				background-repeat:repeat;*/
+	background-image: url(../images/grid.jpg);
+	background-repeat:repeat;
 	background-color:#FFF;
 	font-size: 13px;
 	font-family:Verdana, Geneva, sans-serif;
@@ -247,6 +247,14 @@ ______________________________________________ */
 
 h1.workPushDown {
 	margin-bottom: 15px;
+}
+
+h3.workSelectedPushDown {
+	margin-bottom: 11px;
+}
+
+.projectLeftBar img {
+	margin-bottom: 12px;
 }
 
 /* Other

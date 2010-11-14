@@ -1,13 +1,13 @@
 <div class="grid_12"> 
  
-	<h1>Work.</h1> 
+	<h1 class="workPushDown">Work.</h1> 
  
-	<div class="grid_6 alpha"> 
+	<div class="grid_6 alpha projectLeftBar"> 
 		<%= unescape @project.leftbar %>
 	</div> 
  
 	<div class="grid_6 omega"> 
-		<h2><%= @project.title %></h2>
+		<h3 class="workSelectedPushDown"><%= @project.title %></h3>
 		<%= unescape @project.body %>
 	</div> 
  

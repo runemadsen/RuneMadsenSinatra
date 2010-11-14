@@ -1,0 +1,21 @@
+<div class="grid_12"> 
+ 
+	<form name="input" action="/work" method="post">
+	
+	<input type="hidden" name="id" value="<%= params[:id] %>" /><br />
+	
+	<input type="text" name="title" value="<%= @project.title %>" /><br />
+	
+	<textarea rows="15" cols="80" name="leftbar">
+		<%= unescape @project.leftbar %>
+	</textarea><br />
+	
+	<textarea rows="15" cols="80" name="body">
+		<%= unescape @project.body %>
+	</textarea><br />
+	
+	<input type="submit" value="Submit" />
+		
+	</form>
+    
+</div>

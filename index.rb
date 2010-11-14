@@ -39,10 +39,26 @@ get '/work' do
   
 end
 
+post '/work' do
+  
+  @project = Project.get params[:id].to_i
+  @project.update params
+  
+  redirect '/work/' + params[:id]
+  
+end
+
 get '/work/:id' do
   
   @project = Project.get params[:id].to_i
   erb :project
+  
+end
+
+get '/work/:id/edit' do
+  
+  @project = Project.get params[:id].to_i
+  erb :project_edit
   
 end
 
