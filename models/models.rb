@@ -16,6 +16,7 @@ class Post
   property :title,      String    
   property :body,       Text      
   property :created_at, DateTime
+  property :route,      String
   
   has n, :taggings
   has n, :tags, :through => :taggings
@@ -27,7 +28,8 @@ class Tag
   include DataMapper::Resource
   
   property :id,        Serial  
-  property :name,      String 
+  property :name,      String
+  property :route,      String 
   
   has n, :taggings
   has n, :posts, :through => :taggings
@@ -57,10 +59,11 @@ class Project
   property :published,    Boolean, :default => true
 
   property :ordering,     Integer, :default => 99
+  property :route,      String
   
   def html
     <<-OUTPUT
-     		<a href="/work/#{id}"> 
+     		<a href="/work/#{route}"> 
         		<img src="/images/#{img_small}" /> 
         	</a>
       OUTPUT
@@ -69,4 +72,3 @@ class Project
 end
 
 # DataMapper.auto_upgrade!
-# DataMapper.auto_migrate!

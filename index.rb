@@ -27,7 +27,30 @@ get '/blog' do
   
 end
 
-get '/blog/:page' do
+get '/blog/:route' do
+  
+  @post = Post.first :route => params[:route]
+
+   if @post.blank?
+
+       # convert old joomla url to sinatra url
+       id_num = params[:route].split("-").first
+       new_route = params[:route][id_num.length + 1..-1]
+
+       @project = Project.first :route => new_route
+
+       if @project.blank?
+         404 
+       else
+         redirect "/blog/" + new_route  
+       end
+   else
+     erb :project
+   end
+  
+end
+
+get '/blog/page/:page' do
   
   offset = (params[:page].to_i - 1) * 5
   
@@ -43,11 +66,26 @@ get '/work' do
   
 end
 
-get '/work/:id' do
+get '/work/:route' do
   
-  @project = Project.get params[:id].to_i
-  erb :project
+  @project = Project.first :route => params[:route]
   
+  if @project.blank?
+      
+      # convert old joomla url to sinatra url
+      id_num = params[:route].split("-").first
+      new_route = params[:route][id_num.length + 1..-1]
+      
+      @project = Project.first :route => new_route
+      
+      if @project.blank?
+        404
+      else
+        redirect "/work/" + new_route  
+      end
+  else
+    erb :project
+  end
 end
 
 get '/bio' do
@@ -62,8 +100,9 @@ get '/contact' do
   
 end
 
-
-
+not_found do
+  erb :notfound
+end
 
 # => ADMIN SITE
 

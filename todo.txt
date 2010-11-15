@@ -1,0 +1,4 @@
+- Implement blog pagination
+- Use alias instead of id in URL
+- Make redirect if url is NUMBER - existing alias
+- Catch none existing aliases
