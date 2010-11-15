@@ -101,6 +101,16 @@ get '/contact' do
 end
 
 not_found do
+  
+  route_error = RouteError.first :route => request.path
+  
+  if route_error.blank?
+    RouteError.create( :route => request.path, :numtimes => 1)
+  else
+    route_error.numtimes = route_error.numtimes + 1
+    route_error.save!
+  end
+  
   erb :notfound
 end
 

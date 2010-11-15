@@ -71,4 +71,14 @@ class Project
   
 end
 
-# DataMapper.auto_upgrade!
+class RouteError
+  
+  include DataMapper::Resource
+  
+  property :id,           Serial    
+  property :route,        String
+  property :numtimes,      Integer
+  
+end
+
+DataMapper.auto_upgrade!
