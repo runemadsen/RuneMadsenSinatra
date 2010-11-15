@@ -1,6 +1,6 @@
 body {
-	background-image: url(../images/grid.jpg);
-	background-repeat:repeat;
+/*	background-image: url(../images/grid.jpg);
+	background-repeat:repeat;*/
 	background-color:#FFF;
 	font-size: 13px;
 	font-family:Verdana, Geneva, sans-serif;
@@ -142,9 +142,13 @@ a.link7 {
 /* Blog
 ______________________________________________ */
 
+h1.blogPushDown {
+	margin-bottom: 21px;
+}
+
 .blogHeader {
 	width: 100%;
-	margin-bottom: 8px;	
+	margin-bottom: 14px;	
 }
 
 .blogHeading {
@@ -159,59 +163,18 @@ ______________________________________________ */
 	padding-top:5px;
 }
 
-.moduletable_blog {
-	margin-top: 58px;	
-}
-
-.blogsecond {
-	margin-top: 15px;	
-}
-
-.blogmodule {
-	line-height: 16px;	
-}
-
 .blogPost {
 	margin-top: 20px;
-	margin-bottom: 70px;	
-}
-
-li.tweettext {
-	font-size: 12px;
-	background-color: #ffd664;
-	color: #424242;
-	padding: 10px;
-	margin-bottom: 7px;
-	line-height:14px;
-}
-
-li.tweettext a, 
-li.tweettext a:link,
-li.tweettext a:hover,
-li.tweettext a:visited {
-	color:#424242;
-}
-
-ul.tweets {
-	margin-bottom: 15px;	
+	margin-bottom: 47px;	
 }
 
 /* Pagination
 ______________________________________________ */
 
-ul.pagination {
+.pagination {
 	font-size: 16px;
-	margin-bottom: 20px;
-}
-
-ul.pagination a {
-	color: #3a3a3a;
-	font-weight:normal;
-}
-
-ul.pagination li {
-	float:left;
-	margin-right: 20px;
+	padding-bottom: 20px;
+	color: #414141;
 }
 
 /* Lists

@@ -1,26 +1,43 @@
 <div class="grid_8">
 	
-	<h1>Blog.</h1>
+	<h1 class="blogPushDown">Blog.</h1>
 
 	<% for post in @posts %>
 
 		<div class="blogPost"> 
 			<div class="blogHeader"> 
 		    	<div class="blogHeading"> 
-					<a href="/blog/55-transparent-background-in-processingjs"><h2><%= post.title %></h2></a> 
+					<a href="/blog/<%= post.route %>"><h2><%= post.title %></h2></a> 
 		        </div> 
-		    <div class="blogDate"> 
-		    	<h4><%= post.created_at.day %>.<%= post.created_at.mon %>.<%= post.created_at.year %></h4> 
-		    </div> 
-		    <br class="clearfloat" /> 
-		</div> 
+		    	<div class="blogDate"> 
+		    		<h4><%= post.created_at.day %>.<%= post.created_at.mon %>.<%= post.created_at.year %></h4> 
+		    	</div> 
+		    	<br class="clearfloat" /> 
+			</div> 
 
-		<%= CGI.unescape post.body %>
+			<%= CGI.unescape post.body %>
 
-	</div>
+		</div>
 
 	<% end %>
 	
+	<% if params[:page].blank? %>
+	
+		<%	if @num_pages > 1 %>
+			<a href="/blog/page/2" class="pagination">Older Entries</a>
+		<% end %>
+	
+	<% else %>
+	
+		<%	if params[:page].to_i < @num_pages	%>
+			<a href="/blog/page/<%= params[:page].to_i + 1 %>" class="pagination">Older Entries</a>
+		<% end %>
+	
+		<%	if params[:page].to_i > 1	%>
+			<a href="/blog/page/<%= params[:page].to_i - 1 %>" class="pagination">Newer Entries</a>
+		<% end %>
+	
+	<% end %>
 	
 </div>
 

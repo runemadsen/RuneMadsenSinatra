@@ -2,9 +2,11 @@
  
 	<form name="input" action="/work" method="post">
 	
-	<input type="hidden" name="id" value="<%= params[:id] %>" /><br />
+	<input type="hidden" name="id" value="<%= @project.id %>" /><br />
 	
 	<input type="text" name="title" value="<%= @project.title %>" /><br />
+	
+	<input type="text" name="route" value="<%= @project.route %>" /><br />
 	
 	<textarea rows="15" cols="80" name="leftbar">
 		<%= unescape @project.leftbar %>

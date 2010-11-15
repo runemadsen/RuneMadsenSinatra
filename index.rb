@@ -23,6 +23,18 @@ end
 get '/blog' do
   
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ]
+  @num_pages = Post.count / 5
+  erb :posts
+  
+end
+
+get '/blog/page/:page' do
+  
+  offset = (params[:page].to_i - 1) * 5
+  
+  @posts = Post.all :limit => 5, :order => [ :created_at.desc ], :offset => offset
+  @num_pages = Post.count / 5
+  
   erb :posts
   
 end
@@ -37,25 +49,16 @@ get '/blog/:route' do
        id_num = params[:route].split("-").first
        new_route = params[:route][id_num.length + 1..-1]
 
-       @project = Project.first :route => new_route
+       @post = Post.first :route => new_route
 
-       if @project.blank?
+       if @post.blank?
          404 
        else
          redirect "/blog/" + new_route  
        end
    else
-     erb :project
+     erb :post
    end
-  
-end
-
-get '/blog/page/:page' do
-  
-  offset = (params[:page].to_i - 1) * 5
-  
-  @posts = Post.all :limit => 5, :order => [ :created_at.desc ], :offset => offset
-  erb :posts
   
 end
 
@@ -116,10 +119,10 @@ end
 
 # => ADMIN SITE
 
-get '/work/:id/edit' do
+get '/work/:route/edit' do
   
   protected!
-  @project = Project.get params[:id].to_i
+  @project = Project.first :route => params[:route]
   erb :project_edit
   
 end
@@ -127,10 +130,28 @@ end
 post '/work' do
   
   protected!
-  @project = Project.get params[:id].to_i
-  @project.update params
+  project = Project.get params[:id].to_i
+  project.update params
   
-  redirect '/work/' + params[:id]
+  redirect '/work/' + project.route
+  
+end
+
+get '/blog/:route/edit' do
+  
+  protected!
+  @post = Post.first :route => params[:route]
+  erb :post_edit
+  
+end
+
+post '/blog' do
+  
+  protected!
+  post = Post.get params[:id].to_i
+  post.update params
+  
+  redirect '/blog/' + post.route
   
 end
 

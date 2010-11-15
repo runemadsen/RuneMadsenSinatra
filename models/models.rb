@@ -16,7 +16,7 @@ class Post
   property :title,      String    
   property :body,       Text      
   property :created_at, DateTime
-  property :route,      String
+  property :route,      String, :length => 255
   
   has n, :taggings
   has n, :tags, :through => :taggings
@@ -27,9 +27,9 @@ class Tag
   
   include DataMapper::Resource
   
-  property :id,        Serial  
-  property :name,      String
-  property :route,      String 
+  property :id,       Serial  
+  property :name,     String
+  property :route,    String, :length => 255
   
   has n, :taggings
   has n, :posts, :through => :taggings
@@ -59,7 +59,7 @@ class Project
   property :published,    Boolean, :default => true
 
   property :ordering,     Integer, :default => 99
-  property :route,      String
+  property :route,        String, :length => 255
   
   def html
     <<-OUTPUT
@@ -76,9 +76,9 @@ class RouteError
   include DataMapper::Resource
   
   property :id,           Serial    
-  property :route,        String
-  property :numtimes,      Integer
+  property :route,        String, :length => 255
+  property :numtimes,     Integer
   
 end
 
-DataMapper.auto_upgrade!
+# DataMapper.auto_upgrade!
