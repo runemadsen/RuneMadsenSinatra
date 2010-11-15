@@ -3,13 +3,15 @@ require 'sinatra'
 require 'models/models'
 require 'dm-core'
 require 'cgi'
+require 'helpers.rb'
 
 mime_type :ttf, 'font/ttf'
 mime_type :woff, 'font/woff'
 
 set :views, File.dirname(__FILE__) + '/views'
 
-require 'helpers.rb'
+
+# => PUBLIC SITE
 
 get '/' do
   
@@ -41,27 +43,10 @@ get '/work' do
   
 end
 
-post '/work' do
-  
-  @project = Project.get params[:id].to_i
-  @project.update params
-  
-  redirect '/work/' + params[:id]
-  
-end
-
 get '/work/:id' do
   
   @project = Project.get params[:id].to_i
   erb :project
-  
-end
-
-get '/work/:id/edit' do
-  
-  protected!
-  @project = Project.get params[:id].to_i
-  erb :project_edit
   
 end
 
@@ -77,5 +62,27 @@ get '/contact' do
   
 end
 
+
+
+
+# => ADMIN SITE
+
+get '/work/:id/edit' do
+  
+  protected!
+  @project = Project.get params[:id].to_i
+  erb :project_edit
+  
+end
+
+post '/work' do
+  
+  protected!
+  @project = Project.get params[:id].to_i
+  @project.update params
+  
+  redirect '/work/' + params[:id]
+  
+end
 
 
