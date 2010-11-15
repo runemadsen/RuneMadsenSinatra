@@ -9,6 +9,8 @@ mime_type :woff, 'font/woff'
 
 set :views, File.dirname(__FILE__) + '/views'
 
+require 'helpers.rb'
+
 get '/' do
   
   @projects = Project.all :limit => 4, :order => [ :ordering.asc ]
@@ -57,6 +59,7 @@ end
 
 get '/work/:id/edit' do
   
+  protected!
   @project = Project.get params[:id].to_i
   erb :project_edit
   
