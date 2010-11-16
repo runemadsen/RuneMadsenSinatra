@@ -21,12 +21,12 @@
 
 	<% end %>
 	
-	<% if params[:page].blank? %>
+	<% if params[:page].blank? %>	
 	
 		<%	if @num_pages > 1 %>
 			<a href="/blog/page/2" class="pagination">Older Entries</a>
 		<% end %>
-	
+	<% elsif params[:page] == -1 %>
 	<% else %>
 	
 		<%	if params[:page].to_i < @num_pages	%>
@@ -40,9 +40,21 @@
 	<% end %>
 	
 </div>
+<div class="grid_1">&nbsp;</div>
+<div class="grid_3 alignWithContent">
+	
+	<h3>Tags</h3>
+	
+	<ul>
+	
+	<% for tag in @tags %>
+	
+		<li><a href="/blog/tag/<%= tag.route %>"><%= tag.name %></a></li>
 
-<div class="grid_3" id="mainRight1">
-	Right bar
+	<% end %>
+	
+	</ul>
+	
 </div>
 <div class="clear"></div>
 

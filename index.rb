@@ -11,7 +11,9 @@ mime_type :woff, 'font/woff'
 set :views, File.dirname(__FILE__) + '/views'
 
 
-# => PUBLIC SITE
+#-----------------------------------------------------------------------------
+#                         PUBLIC SITE
+#-----------------------------------------------------------------------------
 
 get '/' do
   
@@ -20,9 +22,13 @@ get '/' do
   
 end
 
+#       BLOG
+#---------------------------------------
+
 get '/blog' do
   
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ]
+  @tags = Tag.all :order => [ :name.asc]
   @num_pages = Post.count / 5
   erb :posts
   
@@ -33,6 +39,7 @@ get '/blog/page/:page' do
   offset = (params[:page].to_i - 1) * 5
   
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ], :offset => offset
+  @tags = Tag.all :order => [ :name.asc ]
   @num_pages = Post.count / 5
   
   erb :posts
@@ -42,6 +49,7 @@ end
 get '/blog/:route' do
   
   @post = Post.first :route => params[:route]
+  @tags = Tag.all :order => [ :name.asc ]
 
    if @post.blank?
 
@@ -61,6 +69,20 @@ get '/blog/:route' do
    end
   
 end
+
+get '/blog/tag/:route' do
+  
+  tag = Tag.first :route => params[:route]
+  @posts = tag.posts.all :order => [ :created_at.desc ]
+  @tags = Tag.all :order => [ :name.asc ]
+  @num_pages = 0
+  
+  erb :posts
+  
+end
+
+#       WORK
+#---------------------------------------
 
 get '/work' do
   
@@ -91,17 +113,26 @@ get '/work/:route' do
   end
 end
 
+#       BIO
+#---------------------------------------
+
 get '/bio' do
   
   erb :bio
   
 end
 
+#       CONTACT
+#---------------------------------------
+
 get '/contact' do
   
   erb :contact
   
 end
+
+#       404
+#---------------------------------------
 
 not_found do
   
@@ -117,7 +148,12 @@ not_found do
   erb :notfound
 end
 
-# => ADMIN SITE
+#-----------------------------------------------------------------------------
+#                         ADMIN SITE
+#-----------------------------------------------------------------------------
+
+#       WORK
+#---------------------------------------
 
 get '/work/:route/edit' do
   
@@ -136,6 +172,9 @@ post '/work' do
   redirect '/work/' + project.route
   
 end
+
+#       BLOG
+#---------------------------------------
 
 get '/blog/:route/edit' do
   

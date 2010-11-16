@@ -19,8 +19,21 @@
 	
 </div>
 
-<div class="grid_3" id="mainRight1">
-	Right bar
+<div class="grid_1">&nbsp;</div>
+<div class="grid_3 alignWithContent">
+	
+	<h3>Tags</h3>
+	
+	<ul>
+	
+	<% for tag in @tags %>
+	
+		<li><a href="/blog/tag/<%= tag.route %>"><%= tag.name %></a></li>
+
+	<% end %>
+	
+	</ul>
+	
 </div>
 <div class="clear"></div>
 
