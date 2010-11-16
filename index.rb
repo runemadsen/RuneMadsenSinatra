@@ -155,6 +155,14 @@ end
 #       WORK
 #---------------------------------------
 
+get '/addwork' do
+  
+  protected!
+  @project = Project.new
+  erb :project_edit
+  
+end
+
 get '/work/:route/edit' do
   
   protected!
@@ -166,8 +174,19 @@ end
 post '/work' do
   
   protected!
-  project = Project.get params[:id].to_i
-  project.update params
+  
+  if params[:id].blank?
+    project = Project.create :title => params[:title], 
+                              :body => params[:body],
+                              :created_at => Time.new,
+                              :img_big  => params[:img_big],
+                              :img_small  => params[:img_small],
+                              :leftbar  => params[:leftbar],
+                              :route  => params[:route]
+  else
+    project = Project.get params[:id]
+    project.update params
+  end
   
   redirect '/work/' + project.route
   

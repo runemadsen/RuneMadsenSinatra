@@ -1,20 +1,26 @@
 <div class="grid_12"> 
  
 	<form name="input" action="/work" method="post">
-	
+
 	<input type="hidden" name="id" value="<%= @project.id %>" /><br />
 	
-	<input type="text" name="title" value="<%= @project.title %>" /><br />
+	Title:<br />
+	<input type="text" name="title" value="<%= @project.title %>" /><br /><br />
 	
-	<input type="text" name="route" value="<%= @project.route %>" /><br />
+	Route:<br />
+	<input type="text" name="route" value="<%= @project.route %>" /><br /><br />
 	
-	<textarea rows="15" cols="80" name="leftbar">
-		<%= unescape @project.leftbar %>
-	</textarea><br />
+	IMG Small:<br />
+	<input type="text" name="img_small" value="<%= @project.img_small %>" /><br /><br />
 	
-	<textarea rows="15" cols="80" name="body">
-		<%= unescape @project.body %>
-	</textarea><br />
+	IMG Big:<br />
+	<input type="text" name="img_big" value="<%= @project.img_big %>" /><br /><br />
+	
+	Leftbar:<br />
+	<textarea rows="15" cols="80" name="leftbar"><% if !@project.leftbar.blank? %><%= unescape @project.leftbar %><% end %></textarea><br />
+	
+	Body:<br />
+	<textarea rows="15" cols="80" name="body"><% if !@project.body.blank? %><%= unescape @project.body %><% end %></textarea><br />
 	
 	<input type="submit" value="Submit" />
 		
