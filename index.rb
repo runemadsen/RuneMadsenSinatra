@@ -141,6 +141,14 @@ get '/blog/:route/edit' do
   
   protected!
   @post = Post.first :route => params[:route]
+  @tags = @post.tags.all
+  
+  @comma_tags = ""
+  
+  for tag in @tags
+    @comma_tags += tag.name + ","
+  end
+	
   erb :post_edit
   
 end
@@ -148,8 +156,29 @@ end
 post '/blog' do
   
   protected!
+  
   post = Post.get params[:id].to_i
-  post.update params
+  post.update :title => params[:title], :route => params[:route], :body => params[:body]
+  
+  # delete all taggings
+  taggings = Tagging.all :post => post
+  for tagging in taggings
+    tagging.destroy
+  end
+  
+  tags = params[:comma_tags].split(",")
+  
+  for tag in tags
+    
+    cur_tag = Tag.first(:name => tag)
+    
+    if cur_tag.blank?
+      post.tags.create(:name => tag, :route => tag) #route should be parsed
+    else
+      Tagging.create :post => post, :tag => cur_tag
+    end
+    
+  end
   
   redirect '/blog/' + post.route
   
