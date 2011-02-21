@@ -195,6 +195,15 @@ end
 #       BLOG
 #---------------------------------------
 
+get '/addblog' do
+  
+  protected!
+  @post = Post.new
+  @post.body = "Write text here"
+  erb :post_edit
+  
+end
+
 get '/blog/:route/edit' do
   
   protected!
