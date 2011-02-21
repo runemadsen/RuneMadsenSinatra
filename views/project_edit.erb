@@ -2,25 +2,25 @@
  
 	<form name="input" action="/work" method="post">
 
-	<input type="hidden" name="id" value="<%= @project.id %>" /><br />
+	<input type="hidden" name="id" value="<%= @project.id %>" />
 	
-	Title:<br />
-	<input type="text" name="title" value="<%= @project.title %>" /><br /><br />
+	<p>Title:<br />
+	<input type="text" name="title" value="<%= @project.title %>" /></p>
 	
-	Route:<br />
-	<input type="text" name="route" value="<%= @project.route %>" /><br /><br />
+	<p>Route:<br />
+	<input type="text" name="route" value="<%= @project.route %>" /></p>
 	
-	IMG Small:<br />
-	<input type="text" name="img_small" value="<%= @project.img_small %>" /><br /><br />
+	<p>IMG Small: (220 x 168 pixels):<br />
+	<input type="text" name="img_small" value="<%= @project.img_small %>" /></p>
 	
-	IMG Big:<br />
-	<input type="text" name="img_big" value="<%= @project.img_big %>" /><br /><br />
+	<p>Img Big: (460 width)<br />
+	<input type="text" name="img_big" value="<%= @project.img_big %>" /></p>
 	
-	Leftbar:<br />
-	<textarea rows="15" cols="80" name="leftbar"><% if !@project.leftbar.blank? %><%= unescape @project.leftbar %><% end %></textarea><br />
+	<p>Leftbar:<br />
+	<textarea rows="15" cols="80" name="leftbar"><% if !@project.leftbar.blank? %><%= unescape @project.leftbar %><% end %></textarea></p>
 	
-	Body:<br />
-	<textarea rows="15" cols="80" name="body"><% if !@project.body.blank? %><%= unescape @project.body %><% end %></textarea><br />
+	<p>Body:<br />
+	<textarea rows="15" cols="80" name="body"><% if !@project.body.blank? %><%= unescape @project.body %><% end %></textarea></p>
 	
 	<input type="submit" value="Submit" />
 		
