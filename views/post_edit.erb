@@ -4,15 +4,19 @@
 	
 	<input type="hidden" name="id" value="<%= @post.id %>" /><br />
 	
-	<input type="text" name="title" value="<%= @post.title %>" /><br />
+	<p>Title:<br />
+	<input type="text" name="title" value="<%= @post.title %>" /></p>
 	
-	<input type="text" name="route" value="<%= @post.route %>" /><br />
+	<p>Route:<br />
+	<input type="text" name="route" value="<%= @post.route %>" /></p>
 	
-	<input type="text" name="comma_tags" value="<%= @comma_tags %>" /><br />
+	<p>Tags (Comma separated):<br />
+	<input type="text" name="comma_tags" value="<%= @comma_tags %>" /></p>
 	
+	<p>Body:<br />
 	<textarea rows="15" cols="80" name="body">
 		<%= unescape @post.body %>
-	</textarea><br />
+	</textarea></p>
 	
 	<input type="submit" value="Submit" />
 		

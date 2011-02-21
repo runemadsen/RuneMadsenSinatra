@@ -1,12 +1,6 @@
 require 'dm-migrations'
 require 'dm-core'
-
-DataMapper.setup(:default, {
-    :adapter  => 'mysql',
-    :host     => 'localhost',
-    :username => 'root' ,
-    :password => 'Enurmadsen1',
-    :database => 'runemadsen'})
+require 'models/connection'
 
 class Post
   
