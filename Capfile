@@ -1,3 +1,5 @@
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+
 set :application, "runemadsen.com"
 set :repository,  "git@github.com:runemadsen/RuneMadsenSinatra.git"
 

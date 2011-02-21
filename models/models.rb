@@ -5,7 +5,7 @@ DataMapper.setup(:default, {
     :adapter  => 'mysql',
     :host     => 'localhost',
     :username => 'root' ,
-    :password => '',
+    :password => 'Enurmadsen1',
     :database => 'runemadsen'})
 
 class Post
