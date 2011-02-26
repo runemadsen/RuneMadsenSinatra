@@ -224,8 +224,15 @@ post '/blog' do
   
   protected!
   
-  post = Post.get params[:id].to_i
-  post.update :title => params[:title], :route => params[:route], :body => params[:body]
+  if params[:id].blank?
+    post = Post.create :title => params[:title], 
+                              :body => params[:body],
+                              :created_at => Time.new,
+                              :route  => params[:route]
+  else
+    post = Post.get params[:id].to_i
+    post.update :title => params[:title], :route => params[:route], :body => params[:body]
+  end  
   
   # delete all taggings
   taggings = Tagging.all :post => post
