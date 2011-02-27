@@ -232,13 +232,14 @@ post '/blog' do
   else
     post = Post.get params[:id].to_i
     post.update :title => params[:title], :route => params[:route], :body => params[:body]
+    
+    # delete all taggings
+    taggings = Tagging.all :post => post
+    for tagging in taggings
+      tagging.destroy
+    end
+    
   end  
-  
-  # delete all taggings
-  taggings = Tagging.all :post => post
-  for tagging in taggings
-    tagging.destroy
-  end
   
   tags = params[:comma_tags].split(",")
   
