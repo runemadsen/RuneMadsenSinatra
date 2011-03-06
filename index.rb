@@ -3,6 +3,8 @@ require 'sinatra'
 require 'models/models'
 require 'dm-core'
 require 'cgi'
+require 'hpricot'               
+require 'syntax/convertors/html'
 require 'helpers.rb'
 
 mime_type :ttf, 'font/ttf'
@@ -28,6 +30,11 @@ end
 get '/blog' do
   
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ]
+  
+  @posts.each_with_index do |post, index|
+    @posts[index].body = convert_pre_to_code post.body
+  end
+  
   @tags = Tag.all :order => [ :name.asc]
   @num_pages = Post.count / 5
   erb :posts
@@ -37,8 +44,12 @@ end
 get '/blog/page/:page' do
   
   offset = (params[:page].to_i - 1) * 5
-  
   @posts = Post.all :limit => 5, :order => [ :created_at.desc ], :offset => offset
+  
+  @posts.each_with_index do |post, index|
+    @posts[index].body = convert_pre_to_code post.body
+  end
+  
   @tags = Tag.all :order => [ :name.asc ]
   @num_pages = Post.count / 5
   
@@ -49,6 +60,7 @@ end
 get '/blog/:route' do
   
   @post = Post.first :route => params[:route]
+  @post.body = convert_pre_to_code @post.body
   @tags = Tag.all :order => [ :name.asc ]
 
    if @post.blank?
