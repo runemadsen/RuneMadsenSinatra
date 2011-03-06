@@ -261,6 +261,7 @@ pre {
 	margin: 10px 0px;
 	background: #f3f3f3; 
 	padding: 10px 0px 10px 20px; 
+	line-height: 14px;
 }
 
 .ruby .keyword    { font-weight: bold;  }
