@@ -233,3 +233,52 @@ ______________________________________________ */
 	font-size: 1px;
 	line-height: 0px;
 }
+
+/* Syntac highlighting
+______________________________________________ */
+
+/*pre { background: #111122; padding: 10px; color: #228822; }
+.ruby .normal { color: #fff; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #0c4; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #ff0; }
+.ruby .string { color: #4f4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #fff; }
+.ruby .constant { color: #0c4; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #fc4; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }*/
+
+pre { 
+	margin: 10px 0px;
+	background: #f3f3f3; 
+	padding: 10px 0px 10px 20px; 
+}
+
+.ruby .keyword    { font-weight: bold;  }
+.ruby .class      { color:#445588; 
+                    font-weight: bold;  }
+.ruby .method     { color:#990000; 
+                    font-weight:bold;   }
+.ruby .constant   { color: #177F80;     }
+.ruby .global     { color: #177F80;     }
+.ruby .punct      { color: #333;        }
+.ruby .attribute  { color: #0086B3;     }
+.ruby .comment    { color: #999988; 
+                    font-style: italic; }
+.ruby .regex      { color: #159828;     }
+.ruby .string     { color:#D81745;      }
+.ruby .expr       { color:#D81745;      }
+.ruby .number     { color: #1C9898;     }
+.ruby .symbol     { color: #960B73;     }
+.ruby .pre-strong { font-weight: bold;  }
+.ruby .escape     {                     }
+.ruby .ident      {                     }
