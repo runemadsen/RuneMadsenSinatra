@@ -14,9 +14,7 @@
 	<input type="text" name="comma_tags" value="<%= @comma_tags %>" /></p>
 	
 	<p>Body:<br />
-	<textarea rows="15" cols="80" name="body">
-		<%= unescape @post.body %>
-	</textarea></p>
+	<textarea rows="15" cols="80" name="body"><%= unescape @post.body %></textarea></p>
 	
 	<input type="submit" value="Submit" />
 		
