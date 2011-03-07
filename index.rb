@@ -57,6 +57,31 @@ get '/blog/page/:page' do
   
 end
 
+get '/blog/new' do
+  
+  protected!
+  @post = Post.new
+  @post.body = "Write text here"
+  erb :post_edit
+  
+end
+
+get '/blog/:route/edit' do
+  
+  protected!
+  @post = Post.first :route => params[:route]
+  @tags = @post.tags.all
+  
+  @comma_tags = ""
+  
+  for tag in @tags
+    @comma_tags += tag.name + ","
+  end
+	
+  erb :post_edit
+  
+end
+
 get '/blog/:route' do
   
   @post = Post.first :route => params[:route]
@@ -90,145 +115,6 @@ get '/blog/tag/:route' do
   @num_pages = 0
   
   erb :posts
-  
-end
-
-#       WORK
-#---------------------------------------
-
-get '/work' do
-  
-  @projects = Project.all :published=> 1, :order => [ :ordering.asc ]
-  erb :projects
-  
-end
-
-get '/work/:route' do
-  
-  @project = Project.first :route => params[:route]
-  
-  if @project.blank?
-      
-      # convert old joomla url to sinatra url
-      id_num = params[:route].split("-").first
-      new_route = params[:route][id_num.length + 1..-1]
-      
-      @project = Project.first :route => new_route
-      
-      if @project.blank?
-        404
-      else
-        redirect "/work/" + new_route  
-      end
-  else
-    erb :project
-  end
-end
-
-#       BIO
-#---------------------------------------
-
-get '/bio' do
-  
-  erb :bio
-  
-end
-
-#       CONTACT
-#---------------------------------------
-
-get '/contact' do
-  
-  erb :contact
-  
-end
-
-#       404
-#---------------------------------------
-
-not_found do
-  
-  route_error = RouteError.first :route => request.path
-  
-  if route_error.blank?
-    RouteError.create( :route => request.path, :numtimes => 1)
-  else
-    route_error.numtimes = route_error.numtimes + 1
-    route_error.save!
-  end
-  
-  erb :notfound
-end
-
-#-----------------------------------------------------------------------------
-#                         ADMIN SITE
-#-----------------------------------------------------------------------------
-
-#       WORK
-#---------------------------------------
-
-get '/addwork' do
-  
-  protected!
-  @project = Project.new
-  erb :project_edit
-  
-end
-
-get '/work/:route/edit' do
-  
-  protected!
-  @project = Project.first :route => params[:route]
-  erb :project_edit
-  
-end
-
-post '/work' do
-  
-  protected!
-  
-  if params[:id].blank?
-    project = Project.create :title => params[:title], 
-                              :body => params[:body],
-                              :created_at => Time.new,
-                              :img_big  => params[:img_big],
-                              :img_small  => params[:img_small],
-                              :leftbar  => params[:leftbar],
-                              :route  => params[:route]
-  else
-    project = Project.get params[:id]
-    project.update params
-  end
-  
-  redirect '/work/' + project.route
-  
-end
-
-#       BLOG
-#---------------------------------------
-
-get '/addblog' do
-  
-  protected!
-  @post = Post.new
-  @post.body = "Write text here"
-  erb :post_edit
-  
-end
-
-get '/blog/:route/edit' do
-  
-  protected!
-  @post = Post.first :route => params[:route]
-  @tags = @post.tags.all
-  
-  @comma_tags = ""
-  
-  for tag in @tags
-    @comma_tags += tag.name + ","
-  end
-	
-  erb :post_edit
   
 end
 
@@ -270,5 +156,119 @@ post '/blog' do
   redirect '/blog/' + post.route
   
 end
+
+
+#       WORK
+#---------------------------------------
+
+get '/work' do
+  
+  @projects = Project.all :published=> 1, :order => [ :ordering.asc ]
+  erb :projects
+  
+end
+
+get '/work/new' do
+  
+  protected!
+  @project = Project.new
+  erb :project_edit
+  
+end
+
+get '/work/:route/edit' do
+  
+  protected!
+  @project = Project.first :route => params[:route]
+  erb :project_edit
+  
+end
+
+get '/work/:route' do
+  
+  @project = Project.first :route => params[:route]
+  
+  if @project.blank?
+      
+      # convert old joomla url to sinatra url
+      id_num = params[:route].split("-").first
+      new_route = params[:route][id_num.length + 1..-1]
+      
+      @project = Project.first :route => new_route
+      
+      if @project.blank?
+        404
+      else
+        redirect "/work/" + new_route  
+      end
+  else
+    erb :project
+  end
+end
+
+post '/work' do
+  
+  protected!
+  
+  if params[:id].blank?
+    project = Project.create :title => params[:title], 
+                              :body => params[:body],
+                              :created_at => Time.new,
+                              :img_big  => params[:img_big],
+                              :img_small  => params[:img_small],
+                              :leftbar  => params[:leftbar],
+                              :route  => params[:route]
+  else
+    project = Project.get params[:id]
+    project.update params
+  end
+  
+  redirect '/work/' + project.route
+  
+end
+
+#       BIO
+#---------------------------------------
+
+get '/bio' do
+  
+  erb :bio
+  
+end
+
+#       CONTACT
+#---------------------------------------
+
+get '/contact' do
+  
+  erb :contact
+  
+end
+
+#       404
+#---------------------------------------
+
+not_found do
+  
+  route_error = RouteError.first :route => request.path
+  
+  if route_error.blank?
+    RouteError.create( :route => request.path, :numtimes => 1)
+  else
+    route_error.numtimes = route_error.numtimes + 1
+    route_error.save!
+  end
+  
+  erb :notfound
+end
+
+#-----------------------------------------------------------------------------
+#                         ADMIN SITE
+#-----------------------------------------------------------------------------
+
+
+#       BLOG
+#---------------------------------------
+
 
 
