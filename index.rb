@@ -1,11 +1,9 @@
 require 'rubygems'
-require 'sinatra'
-require 'models/models'
-require 'dm-core'
-require 'cgi'
-require 'hpricot'               
-require 'syntax/convertors/html'
+require 'bundler'
+Bundler.require
+require 'cgi'             
 require 'helpers.rb'
+require 'models/models'
 
 mime_type :ttf, 'font/ttf'
 mime_type :woff, 'font/woff'
@@ -157,7 +155,6 @@ post '/blog' do
   
 end
 
-
 #       WORK
 #---------------------------------------
 
@@ -261,14 +258,6 @@ not_found do
   
   erb :notfound
 end
-
-#-----------------------------------------------------------------------------
-#                         ADMIN SITE
-#-----------------------------------------------------------------------------
-
-
-#       BLOG
-#---------------------------------------
 
 
 
