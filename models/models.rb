@@ -1,5 +1,3 @@
-require 'dm-migrations'
-require 'dm-core'
 require 'models/connection'
 
 class Post
