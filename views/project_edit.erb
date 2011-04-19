@@ -16,11 +16,19 @@
 	<p>Img Big: (460 width)<br />
 	<input type="text" name="img_big" value="<%= @project.img_big %>" /></p>
 	
+<<<<<<< HEAD
 	<p>Leftbar:<br />
 	<textarea rows="15" cols="80" name="leftbar"><% if !@project.leftbar.blank? %><%= unescape @project.leftbar %><% end %></textarea></p>
 	
 	<p>Body:<br />
 	<textarea rows="15" cols="80" name="body"><% if !@project.body.blank? %><%= unescape @project.body %><% end %></textarea></p>
+=======
+	Leftbar:<br />
+	<textarea rows="15" cols="80" name="leftbar"><% if !@project.leftbar.nil? %><%= unescape @project.leftbar %><% end %></textarea><br />
+	
+	Body:<br />
+	<textarea rows="15" cols="80" name="body"><% if !@project.body.nil? %><%= unescape @project.body %><% end %></textarea><br />
+>>>>>>> master
 	
 	<input type="submit" value="Submit" />
 		
