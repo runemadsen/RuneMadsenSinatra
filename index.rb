@@ -86,7 +86,7 @@ get '/blog/:route' do
   @post.body = convert_pre_to_code @post.body
   @tags = Tag.all :order => [ :name.asc ]
 
-   if @post.blank?
+   if @post.nil?
 
        # convert old joomla url to sinatra url
        id_num = params[:route].split("-").first
@@ -94,7 +94,7 @@ get '/blog/:route' do
 
        @post = Post.first :route => new_route
 
-       if @post.blank?
+       if @post.nil?
          404 
        else
          redirect "/blog/" + new_route  
@@ -120,7 +120,7 @@ post '/blog' do
   
   protected!
   
-  if params[:id].blank?
+  if params[:id].nil?
     post = Post.create :title => params[:title], 
                               :body => params[:body],
                               :created_at => Time.new,
@@ -143,7 +143,7 @@ post '/blog' do
     
     cur_tag = Tag.first(:name => tag)
     
-    if cur_tag.blank?
+    if cur_tag.nil?
       post.tags.create(:name => tag, :route => tag) #route should be parsed
     else
       Tagging.create :post => post, :tag => cur_tag
@@ -185,7 +185,7 @@ get '/work/:route' do
   
   @project = Project.first :route => params[:route]
   
-  if @project.blank?
+  if @project.nil?
       
       # convert old joomla url to sinatra url
       id_num = params[:route].split("-").first
@@ -193,7 +193,7 @@ get '/work/:route' do
       
       @project = Project.first :route => new_route
       
-      if @project.blank?
+      if @project.nil?
         404
       else
         redirect "/work/" + new_route  
@@ -207,7 +207,7 @@ post '/work' do
   
   protected!
   
-  if params[:id].blank?
+  if params[:id].nil?
     project = Project.create :title => params[:title], 
                               :body => params[:body],
                               :created_at => Time.new,
@@ -249,7 +249,7 @@ not_found do
   
   route_error = RouteError.first :route => request.path
   
-  if route_error.blank?
+  if route_error.nil?
     RouteError.create( :route => request.path, :numtimes => 1)
   else
     route_error.numtimes = route_error.numtimes + 1
