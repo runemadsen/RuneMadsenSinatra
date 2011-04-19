@@ -4,6 +4,8 @@ GEM
     addressable (2.2.5)
     dm-core (1.1.0)
       addressable (~> 2.2.4)
+    dm-migrations (1.1.0)
+      dm-core (~> 1.1.0)
     hpricot (0.8.4)
     newrelic_rpm (2.14.1)
     rack (1.2.2)
@@ -18,6 +20,7 @@ PLATFORMS
 
 DEPENDENCIES
   dm-core
+  dm-migrations
   hpricot
   newrelic_rpm
   sinatra
