@@ -21,7 +21,7 @@
 
 	<% end %>
 	
-	<% if params[:page].blank? %>	
+	<% if params[:page].nil? %>	
 	
 		<%	if @num_pages > 1 %>
 			<a href="/blog/page/2" class="pagination">Older Entries</a>
